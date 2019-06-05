@@ -1,5 +1,5 @@
 import { run } from "./javascripts/app";
-import "./main.scss";
+import "./stylesheets/scss/main.scss";
 import { AlertService } from "./javascripts/alert.service";
 import { ComponentService } from "./javascripts/component.service";
 const alertService = new AlertService();

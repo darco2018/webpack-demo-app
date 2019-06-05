@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 export class ComponentService {
   constructor() {
     this.numberOneInput = document.getElementById("numberOne");

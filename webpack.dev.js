@@ -1,13 +1,14 @@
+/* eslint-disable import/no-extraneous-dependencies */
+//------------------------------------------------
 
 const path = require("path");
-const common = require("./webpack.common");
 const merge = require("webpack-merge");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const common = require("./webpack.common");
 
 module.exports = merge(common.webpackData, {
-  
   devtool: "cheap-module-eval-source-map", // devtool: "eval-source-map", is the highest quality option of the inline options. It's also the slowest one as it emits the most data:
-  
+
   mode: "development",
   output: {
     filename: "[name].bundle.js",
@@ -15,7 +16,7 @@ module.exports = merge(common.webpackData, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(".", "src", "index.html"),
+      template: path.join(".", "src", "index.html")
     })
   ],
   module: {
@@ -23,9 +24,9 @@ module.exports = merge(common.webpackData, {
       {
         test: /\.scss$/,
         use: [
-          "style-loader", //3. Inject styles into DOM
-          "css-loader", //2. Turns css into commonjs
-          "sass-loader" //1. Turns sass into css
+          "style-loader", // 3. Inject styles into DOM
+          "css-loader", // 2. Turns css into commonjs
+          "sass-loader" // 1. Turns sass into css
         ]
       },
       /* The "loadImages" configuration defaults to url-loader during development and uses both url-loader and file-loader 
@@ -48,5 +49,3 @@ in production to maintain smaller bundle sizes.
     ]
   }
 });
-
-

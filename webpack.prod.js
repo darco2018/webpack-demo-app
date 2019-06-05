@@ -1,12 +1,13 @@
-
+/* eslint-disable import/no-extraneous-dependencies */
+//------------------------------------------------
 const path = require("path");
-const common = require("./webpack.common");
 const merge = require("webpack-merge");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const common = require("./webpack.common");
 
 module.exports = merge(common.webpackData, {
   devtool: "source-map", // useful for debugging as well as running benchmark tests. one with a fairly quick build speed
@@ -30,7 +31,9 @@ module.exports = merge(common.webpackData, {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ filename: path.join("stylesheets", "[name].[contentHash].css" )}),
+    new MiniCssExtractPlugin({
+      filename: path.join("stylesheets", "[name].[contentHash].css")
+    }),
     new CleanWebpackPlugin()
   ],
   module: {
@@ -38,23 +41,22 @@ module.exports = merge(common.webpackData, {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader, //3. Extract css into files
-          "css-loader", //2. Turns css into commonjs
-          "sass-loader" //1. Turns sass into css
+          MiniCssExtractPlugin.loader, // 3. Extract css into files
+          "css-loader", // 2. Turns css into commonjs
+          "sass-loader" // 1. Turns sass into css
         ]
       },
       {
         test: /\.(svg|png|jp?eg|gif)$/,
         use: {
           loader: "url-loader",
-          options:   {
+          options: {
             limit: 5000,
             name: "[name].[hash].[ext]",
             outputPath: "images"
           }
         }
-      } 
-    
+      }
     ]
   }
 });

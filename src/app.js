@@ -1,4 +1,4 @@
-import { run } from "./public/javascripts/app";
+import { run } from "./public/javascripts/init";
 import "./public/stylesheets/scss/main.scss";
 import { AlertService } from "./public/javascripts/alert.service";
 import { ComponentService } from "./public/javascripts/component.service";

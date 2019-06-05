@@ -1,7 +1,7 @@
-import { run } from "./js/app";
+import { run } from "./javascripts/app";
 import "./main.scss";
-import { AlertService } from "./js/alert.service";
-import { ComponentService } from "./js/component.service";
+import { AlertService } from "./javascripts/alert.service";
+import { ComponentService } from "./javascripts/component.service";
 const alertService = new AlertService();
 const componentService = new ComponentService();
 run(alertService, componentService);

@@ -10,7 +10,7 @@ const PATHS = {
 const webpackData = {
   
   entry: {
-    main: "./src/app.js", // default:  "./src/index.js",
+    main:  "./src/app.js", // default:  "./src/index.js",
     vendor: "./src/public/javascripts/vendor/vendor.js"
   },
   module: {

@@ -19,7 +19,7 @@ module.exports = merge(common.webpackData, {
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
       new HtmlWebpackPlugin({
-        template: "./src/index.html",
+        template: path.join(".", "src", "index.html"),
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,

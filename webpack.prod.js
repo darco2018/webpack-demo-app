@@ -1,3 +1,4 @@
+
 const path = require("path");
 const common = require("./webpack.common");
 const merge = require("webpack-merge");
@@ -7,11 +8,11 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = merge(common, {
+module.exports = merge(common.webpackData, {
   mode: "production",
   output: {
     filename: path.join("javascripts", "[name].[contentHash].bundle.js"),
-    path: path.resolve(__dirname, "dist")
+    path: common.PATHS.dist
   },
   optimization: {
     minimizer: [

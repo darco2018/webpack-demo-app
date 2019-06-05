@@ -9,6 +9,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(common.webpackData, {
+  devtool: "source-map", // useful for debugging as well as running benchmark tests. one with a fairly quick build speed
   mode: "production",
   output: {
     filename: path.join("javascripts", "[name].[contentHash].bundle.js"),

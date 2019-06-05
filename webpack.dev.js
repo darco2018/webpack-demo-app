@@ -5,6 +5,9 @@ const merge = require("webpack-merge");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(common.webpackData, {
+  
+  devtool: "cheap-module-eval-source-map", // devtool: "eval-source-map", is the highest quality option of the inline options. It's also the slowest one as it emits the most data:
+  
   mode: "development",
   output: {
     filename: "[name].bundle.js",

@@ -6,7 +6,8 @@ const StyleLintPlugin = require("stylelint-webpack-plugin");
 
 const PATHS = {
   app: path.resolve(__dirname, "src"),
-  dist: path.resolve(__dirname, "dist")
+  dist: path.resolve(__dirname, "dist"),
+  assetsPublic: "public"
 };
 
 const webpackData = {

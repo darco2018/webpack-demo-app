@@ -13,7 +13,11 @@ module.exports = merge(common.webpackData, {
   devtool: "source-map", // useful for debugging as well as running benchmark tests. one with a fairly quick build speed
   mode: "production",
   output: {
-    filename: path.join("javascripts", "[name].[contentHash].bundle.js"),
+    filename: path.join(
+      common.PATHS.assetsPublic,
+      "javascripts",
+      "[name].[contentHash].bundle.js"
+    ),
     path: common.PATHS.dist
   },
   optimization: {
@@ -32,7 +36,11 @@ module.exports = merge(common.webpackData, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: path.join("stylesheets", "[name].[contentHash].css")
+      filename: path.join(
+        common.PATHS.assetsPublic,
+        "stylesheets",
+        "[name].[contentHash].css"
+      )
     }),
     new CleanWebpackPlugin()
   ],
@@ -53,7 +61,7 @@ module.exports = merge(common.webpackData, {
           options: {
             limit: 5000,
             name: "[name].[hash].[ext]",
-            outputPath: "images"
+            outputPath: path.join(common.PATHS.assetsPublic, "images")
           }
         }
       }

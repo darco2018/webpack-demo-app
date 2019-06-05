@@ -42,7 +42,19 @@ module.exports = merge(common.webpackData, {
           "css-loader", //2. Turns css into commonjs
           "sass-loader" //1. Turns sass into css
         ]
-      }
+      },
+      {
+        test: /\.(svg|png|jp?eg|gif)$/,
+        use: {
+          loader: "url-loader",
+          options:   {
+            limit: 5000,
+            name: "[name].[hash].[ext]",
+            outputPath: "images"
+          }
+        }
+      } 
+    
     ]
   }
 });

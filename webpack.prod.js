@@ -66,7 +66,18 @@ module.exports = merge(common.webpackData, {
             outputPath: path.join(common.PATHS.assetsPublic, "images")
           }
         }
+      },
+
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|someOtherDir)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"] // it can choose which features to compile and which polyfills to enable based on your browserlist
+          }
+        }
       }
-    ]
+    ] // end rules
   }
 });

@@ -34,8 +34,7 @@ const webpackData = {
         enforce: "pre",
         test: /\.js$/,
         loader: "eslint-loader"
-        // needs .eslintrc
-        // as soon as config file appears VS starts finding JS errors & correcting them on save
+        // as soon as config file .eslintrc appears VS starts finding JS errors & correcting them on save
         // they can be seen in PROBLEMS
       }
     ]

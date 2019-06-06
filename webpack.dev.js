@@ -19,6 +19,10 @@ module.exports = merge(common.webpackData, {
       template: path.join(".", "src", "index.html")
     })
   ],
+  // "webpack --mode production --module-bind js=babel-loader"
+  // loader-runner allows you to run loaders in isolation without webpack.
+  // inspect-loader allows you to inspect what's being passed between loaders.
+  // careful with loader ordering! right to left
   module: {
     rules: [
       {
@@ -26,7 +30,7 @@ module.exports = merge(common.webpackData, {
         use: [
           "style-loader", // 3. Inject styles into DOM
           "css-loader", // 2. Turns css into commonjs
-          "sass-loader" // 1. Turns sass into css
+          "sass-loader" // 1. Compiles Sass to CSS, using Node Sass by default
         ]
       },
       /* The "loadImages" configuration defaults to url-loader during development and uses both url-loader and file-loader 

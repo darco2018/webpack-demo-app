@@ -1,0 +1,10 @@
+/** @format */
+
+body {
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
+  background-color: yellowgreen;
+}
+html {
+  color: purple;
+}

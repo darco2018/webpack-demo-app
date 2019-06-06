@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
 const common = require("./webpack.common");
 
 module.exports = merge(common.webpackData, {
@@ -42,7 +43,8 @@ module.exports = merge(common.webpackData, {
         "[name].[contentHash].css"
       )
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new webpack.HashedModuleIdsPlugin() // vendor hash should stay consistent between builds
   ],
   module: {
     rules: [
@@ -50,7 +52,7 @@ module.exports = merge(common.webpackData, {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader, // 3. Extract css into files
-          "css-loader", // 2. Turns css into commonjs
+          "css-loader", // 2. Turns css into commonjs. Can see them in bundle.js
           "sass-loader" // 1. Turns sass into css
         ]
       },

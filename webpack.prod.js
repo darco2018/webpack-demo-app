@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const PostcssPresetEnv = require("postcss-preset-env");
 const webpack = require("webpack");
 const common = require("./webpack.common");
 
@@ -53,6 +54,13 @@ module.exports = merge(common.webpackData, {
         use: [
           MiniCssExtractPlugin.loader, // 3. Extract css into files
           "css-loader", // 2. Turns css into commonjs. Can see them in bundle.js
+          {
+            loader: "postcss-loader",
+            options: {
+              ident: "postcss",
+              plugins: () => [new PostcssPresetEnv(/* pluginOptions */)]
+            }
+          },
           "sass-loader" // 1. Turns sass into css
         ]
       },
@@ -78,6 +86,6 @@ module.exports = merge(common.webpackData, {
           }
         }
       }
-    ] // end rules
+    ]
   }
 });

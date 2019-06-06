@@ -1,3 +1,9 @@
 $primary: yellow;
 $danger: purple;
 @import "~bootstrap/scss/bootstrap";
+// my comment
+/* another comment */
+.dupa {
+  color: yellowgreen;
+}
+@import "_partial.scss";

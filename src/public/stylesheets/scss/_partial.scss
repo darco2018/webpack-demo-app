@@ -1,0 +1,13 @@
+h1 {
+  color: red;
+}
+
+.example {
+  // will be prefixed by post-css-preset-env
+  user-select: none;
+}
+
+html {
+  // will be converted by post-css-preset-env
+  overflow: hidden auto;
+}

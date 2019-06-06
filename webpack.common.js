@@ -1,7 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 //------------------------------------------------
 const path = require("path");
-// let HtmlWebpackPlugin = require("html-webpack-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
 
 const PATHS = {

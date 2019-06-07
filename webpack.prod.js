@@ -8,6 +8,7 @@ const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const PostcssPresetEnv = require("postcss-preset-env");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const common = require("./webpack.common");
 
@@ -37,6 +38,20 @@ module.exports = merge(common.webpackData, {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+      {
+        context: common.PATHS.app,
+        from: "**/*",
+        to: common.PATHS.dist,
+        ignore: [
+          "public/*",
+          "**/*index.html",
+          "private/*",
+          "scripts/*",
+          "notes.txt"
+        ]
+      }
+    ]),
     new MiniCssExtractPlugin({
       filename: path.join(
         common.PATHS.assetsPublic,

@@ -65,7 +65,7 @@ module.exports = merge(common.webpackData, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
           MiniCssExtractPlugin.loader, // 3. Extract css into files
           "css-loader", // 2. Turns css into commonjs. Can see them in bundle.js
@@ -80,7 +80,7 @@ module.exports = merge(common.webpackData, {
         ]
       },
       {
-        test: /\.(svg|png|jp?eg|gif)$/,
+        test: /\.(svg|png|jpeg|jpg|gif)$/,
         use: {
           loader: "url-loader",
           options: {

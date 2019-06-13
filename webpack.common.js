@@ -16,7 +16,7 @@ const webpackData = {
   },
   plugins: [
     new StyleLintPlugin({
-      files: "**/*.s?(a|c)ss", // default
+      files: "**/*.(css|scss)", // default
       failOnError: true, // true = stylelint error will break webpack build
       emitErrors: false, // reports errors as warnings
       quiet: false // true = avoid error output to the console.

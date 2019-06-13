@@ -26,22 +26,22 @@ module.exports = merge(common.webpackData, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [
           "style-loader", // 3. Inject styles into DOM
           "css-loader", // 2. Turns css into commonjs
           "sass-loader" // 1. Compiles Sass to CSS, using Node Sass by default
         ]
       },
-      /* The "loadImages" configuration defaults to url-loader during development and uses both url-loader and file-loader 
-in production to maintain smaller bundle sizes. 
-  url-loader uses file-loader implicitly when limit is set, 
+      /* The "loadImages" configuration defaults to url-loader during development and uses both url-loader and file-loader
+in production to maintain smaller bundle sizes.
+  url-loader uses file-loader implicitly when limit is set,
   file-loader outputs image files and returns paths to them instead of inlining.
-  Below the limit, it should inline the image while above it should emit a separate asset and a path to it. 
-  The CSS lookup works because of css-loader. You can also try importing the image from JavaScript code and see what happens. 
+  Below the limit, it should inline the image while above it should emit a separate asset and a path to it.
+  The CSS lookup works because of css-loader. You can also try importing the image from JavaScript code and see what happens.
   Be careful not to apply both loaders on images at the same time! */
       {
-        test: /\.(svg|png|jp?eg|gif)$/,
+        test: /\.(svg|png|jpeg|jpg|gif)$/,
         use: {
           loader: "url-loader",
           options: {

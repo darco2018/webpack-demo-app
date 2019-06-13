@@ -1,9 +1,10 @@
 module.exports = {
   "extends": [  "airbnb",
-  "plugin:prettier/recommended",
   "prettier/react",
   "plugin:import/errors",
-  "plugin:import/warnings"],
+  "plugin:import/warnings",
+  "plugin:prettier/recommended"
+  ],
 
   "parserOptions": {
     // ecma 6 ( 2015 ) is the default
